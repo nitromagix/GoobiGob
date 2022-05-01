@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>GoobiGob board</title>
+</head>
+<style>
+   #board {
+      margin:0px;
+      padding:0px;
+      line-height: 0px;
+      font-size: 0px;
+   }
+   body {
+      text-align: center;
+   }
+   .cell {
+      display: inline-block;
+      width: 32px;
+      height: 32px;
+      background: white;
+      border: 1px solid black;
+   }
+</style>
+
+<body>
+   <div id="board"></div>
+   <script>
+      function changeBackgroundColor(e) {
+         e.target.style.background = e.target.style.background === 'white' ? 'black' : 'white'
+      }
+
+      const board = document.getElementById('board');
+      for (let i = 0; i <= 15; i++) {
+            const row = document.createElement('div');
+            row.classList.add('row')
+            board.append(row);
+            for (let j = 0; j <= 20; j++) {
+               const cell = document.createElement('div');
+               cell.textContent = '';
+               cell.classList.add('cell');
+               cell.onclick = changeBackgroundColor;
+               row.append(cell);
+            }
+         }
+   </script>
+</body>
+
+</html>
