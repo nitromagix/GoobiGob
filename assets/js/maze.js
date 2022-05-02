@@ -4,9 +4,6 @@
 const maze = {
    
    initialize: () => {
-      function changeBackgroundColor(e) {
-         e.target.style.background = e.target.style.background === 'lightgrey' ? 'black' : 'lightgrey'
-      }
 
       const wh = `${CELL_WIDTH_HEIGHT}px`
       const m = document.getElementById('maze');
@@ -19,12 +16,11 @@ const maze = {
             const x_index = x;
             const cell = document.createElement('div');
             cell.id = `c${x_index}-${y_Index}`
+            cell.classList.add('cell');
             cell.style.width = wh;
             cell.style.height = wh;
             cell.setAttribute('position', `[${x_index},${y_Index}]`)
             cell.textContent = '';
-            cell.classList.add('cell');
-            // cell.onclick = changeBackgroundColor;
             row.append(cell);
          }
       }

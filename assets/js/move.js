@@ -1,5 +1,7 @@
 'use strict';
 
+const TIMEOUT = 200
+
 const move = (element) => {
    element.style.position = 'relative'
 
@@ -8,23 +10,15 @@ const move = (element) => {
    //    element.style.bottom = bottom + 'px'
    // }
 
-   function moveWithArrowKeys(x_index, y_index, callback) {
+   async function moveWithArrowKeys(x_index, y_index, callback) {
       let direction = null;
       let x = x_index;
       let y = y_index;
 
-      element.style.left = '0px';
-      element.style.top = '0px';
-
       function moveCharacter() {
+         let k = 0
          if (direction === 'right') {
             x = x === MAZE_WIDTH ? MAZE_WIDTH : x + 1;
-            let k = 0
-            while (k < CELL_WIDTH_HEIGHT) {
-               element.style.left = `${k++}px`
-               console.log(element.style.left);
-               wait(7);
-            }
          }
          if (direction === 'up') {
             y = y === MAZE_HEIGHT ? MAZE_HEIGHT : y + 1;
@@ -38,9 +32,10 @@ const move = (element) => {
 
          const newCell = document.getElementById(`c${x}-${y}`);
          newCell.appendChild(element)
+
       }
 
-      setInterval(moveCharacter, 150)
+      setInterval(moveCharacter, MOVE_INTERVAL)
 
       document.addEventListener('keydown', function (e) {
          if (e.repeat) return;

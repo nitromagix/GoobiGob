@@ -1,6 +1,6 @@
 'use strict';
 
-const goobi = (x, y) => {
+const goobi = (start_at_cell_x_index, start_at_cell_y_index) => {
    const wh = `${CELL_WIDTH_HEIGHT}px`
    const element = createSizedImage('./assets/images/g.static.gif', wh, wh)
    element.style.zIndex = 1;
@@ -10,7 +10,7 @@ const goobi = (x, y) => {
 
    function handleDirectionChange(direction) {
       if (direction === null) {
-         deg = (prev === 'down' ? 90 : prev === 'left' ? 180 : prev === 'up' ? -90 : 0);
+         // deg = (prev === 'down' ? 90 : prev === 'left' ? 180 : prev === 'up' ? -90 : 0);
          prev = 'right';
       }
       if (direction === 'left') {
@@ -32,7 +32,7 @@ const goobi = (x, y) => {
       element.style.transform = 'rotate(' + deg + 'deg)';
    }
 
-   move(element).withArrowKeys(x, y, handleDirectionChange)
+   move(element).withArrowKeys(start_at_cell_x_index, start_at_cell_y_index, handleDirectionChange)
 
    return {
       element: element
