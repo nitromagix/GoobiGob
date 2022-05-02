@@ -1,6 +1,8 @@
 'use strict';
-
-const CELL_WIDTH_HEIGHT = 25;
+const MAZE_WIDTH = 20;
+const MAZE_HEIGHT = 20;
+const CELL_WIDTH_HEIGHT = 30;
+const MOVE_INTERVAL = 250;
 
 window.onload = async (e) => {
    await main();
@@ -8,7 +10,7 @@ window.onload = async (e) => {
 };
 
 const main = async () => {
-   let m = maze.initialize();
+   let m = await maze.initialize();
    const g = goobi(10, 10)
 }
 
