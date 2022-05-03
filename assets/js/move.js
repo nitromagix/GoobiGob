@@ -16,7 +16,6 @@ const move = (element) => {
       let y = y_index;
 
       function moveCharacter() {
-         let k = 0
          if (direction === 'right') {
             x = x === MAZE_WIDTH ? MAZE_WIDTH : x + 1;
          }
@@ -30,9 +29,10 @@ const move = (element) => {
             y = y === 0 ? 0 : y - 1;
          }
 
-         const newCell = document.getElementById(`c${x}-${y}`);
-         newCell.appendChild(element)
-
+         if (direction !== null) {
+            const newCell = document.getElementById(`c${x}-${y}`);
+            newCell.appendChild(element)
+         }
       }
 
       setInterval(moveCharacter, MOVE_INTERVAL)

@@ -2,8 +2,9 @@
 
 const goobi = (start_at_cell_x_index, start_at_cell_y_index) => {
    const wh = `${CELL_WIDTH_HEIGHT}px`
-   const element = createSizedImage('./assets/images/g.static.gif', wh, wh)
-   element.style.zIndex = 1;
+   const g = createSizedImage('./assets/images/g.static.gif', wh, wh)
+   g.id = 'goobi';
+   g.style.zIndex = 1;
 
    let prev = 'right';
    let deg = 0;
@@ -29,12 +30,12 @@ const goobi = (start_at_cell_x_index, start_at_cell_y_index) => {
          deg = (prev === 'right' ? 90 : prev === 'up' ? 180 : prev === 'left' ? -90 : 0);
          prev = 'down';
       }
-      element.style.transform = 'rotate(' + deg + 'deg)';
+      g.style.transform = 'rotate(' + deg + 'deg)';
    }
 
-   move(element).withArrowKeys(start_at_cell_x_index, start_at_cell_y_index, handleDirectionChange)
+   move(g).withArrowKeys(start_at_cell_x_index, start_at_cell_y_index, handleDirectionChange)
 
    return {
-      element: element
+      element: g
    }
 }

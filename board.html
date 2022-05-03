@@ -5,123 +5,40 @@
    <meta charset="UTF-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>GoobiGob board</title>
+   <link rel="stylesheet" href="./assets/css/style.css">
+   </link>
+
+   <title>GoobiGob Board Creator</title>
 </head>
 <style>
-   #board {
-      margin: 0px;
-      padding: 0px;
-      line-height: 0px;
-      font-size: 0px;
-   }
 
-   body {
-      text-align: center;
-   }
-
-   .cell {
-      display: inline-block;
-      width: 32px;
-      height: 32px;
-      background: white;
-      border: 1px solid black;
-   }
-
-
-   #box {
-      position: relative;
-      background-color: blue;
-      height: 150px;
-      width: 150px;
-      left: 0;
-   }
-
-   #box.moveRight {
-      transition: left 3.25s;
-   }
-
-   #box.moveUp {
-      transition: bottom 3.25s;
-   }
-
-   #box.moveLeft {
-      transition: right 3.25s;
-   }
-
-   #box.moveDown {
-      transition: top 3.25s;
-   }
-
-   .box {
-      margin: 30px;
-      height: 50px;
-      width: 50px;
-      background-color: blue;
-   }
-
-   .box.horizTranslate {
-      -webkit-transition: 3s;
-      -moz-transition: 3s;
-      -ms-transition: 3s;
-      -o-transition: 3s;
-      transition: 3s;
-      margin-left: 50% !important;
-   }
 </style>
 
 <body>
-   <div id="box">
-
+   <div id="container">
+      <header>
+         header
+      </header>
+      <div id="maze"></div>
+      <footer>
+         footer
+      </footer>
    </div>
-
-   <h3>Pure Javascript</h3>
-   <div class='box'></div>
-   <button class='toggleButton' value='play'>Play</button>
-
-   <!-- <div id="board"></div> -->
+   <script src="./assets/js/grid.js"></script>
    <script>
-      var boxOne = document.getElementsByClassName('box')[0];
+      'use strict';
+      const MAZE_WIDTH = 20;
+      const MAZE_HEIGHT = 20;
+      const CELL_WIDTH_HEIGHT = 25;
 
-      document.getElementsByClassName('toggleButton')[0].onclick = function () {
-         if (this.innerHTML === 'Play') {
-            this.innerHTML = 'Pause';
-            boxOne.classList.add('horizTranslate');
-         } else {
-            this.innerHTML = 'Play';
-            var computedStyle = window.getComputedStyle(boxOne),
-               marginLeft = computedStyle.getPropertyValue('margin-left');
-            boxOne.style.marginLeft = marginLeft;
-            boxOne.classList.remove('horizTranslate');
-         }
+      window.onload = async (e) => {
+         await main();
+
+      };
+
+      const main = async () => {
+         let m = maze.buildMaze();
       }
-
-      var box = document.getElementById("box");
-
-      box.addEventListener("click", moveBox);
-
-      function moveBox() {
-         box.classList.add("moveRight");
-         box.style.left ='30px';
-         box.classList.remove("moveRight")
-      }
-
-      // function changeBackgroundColor(e) {
-      //    e.target.style.background = e.target.style.background === 'white' ? 'black' : 'white'
-      // }
-
-      // const board = document.getElementById('board');
-      // for (let i = 0; i <= 15; i++) {
-      //    const row = document.createElement('div');
-      //    row.classList.add('row')
-      //    board.append(row);
-      //    for (let j = 0; j <= 20; j++) {
-      //       const cell = document.createElement('div');
-      //       cell.textContent = '';
-      //       cell.classList.add('cell');
-      //       cell.onclick = changeBackgroundColor;
-      //       row.append(cell);
-      //    }
-      // }
    </script>
 </body>
 

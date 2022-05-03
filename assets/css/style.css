@@ -1,5 +1,15 @@
 body {
    text-align: center;
+   background-color: #202324;
+}
+
+#container {
+   display: inline-block;
+   width:auto;
+   margin: 0 auto;
+   border: 3px double white;
+   border-radius: 5px;
+   padding:10px;
 }
 
 #maze {
@@ -9,12 +19,14 @@ body {
    padding: 0px;
    line-height: 0px;
    font-size: 0px;
-   border: 3px double white;
+
 }
 
 
 .cell {
    display: inline-block;
-   background: dimgray;
+   background: dimgrey;
+   width: 20px;
+   height: 20px;
    /* border: 1px solid black; */
 }
