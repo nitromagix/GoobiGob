@@ -3,7 +3,9 @@
 
 const grid = {
    
-   buildGrid: () => {
+   buildGrid: (mazeData) => {
+
+      console.log(mazeData);
 
       // const wh = `${CELL_WIDTH_HEIGHT}px`
       const g = document.getElementById('grid');
@@ -15,7 +17,7 @@ const grid = {
          for (let x = 0; x <= GRID_WIDTH; x++) {
             const x_index = x;
             const cell = document.createElement('div');
-            cell.id = `c${x_index}-${y_Index}`;
+            cell.id = `c${x_index}_${y_Index}`;
             cell.classList.add('cell');
             // cell.style.width = wh;     //   change in CSS
             // cell.style.height = wh;    //   change in CSS
