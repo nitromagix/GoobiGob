@@ -16,6 +16,9 @@ const move = (element) => {
       let y = y_index;
 
       function moveCharacter() {
+         const old_x = x;
+         const old_y = y;
+
          if (direction === 'right') {
             x = x === GRID_WIDTH ? GRID_WIDTH : x + 1;
          }
@@ -31,7 +34,14 @@ const move = (element) => {
 
          if (direction !== null) {
             const newCell = document.getElementById(`c${x}_${y}`);
-            newCell.appendChild(element)
+            const cellType = newCell.getAttribute('ctype');
+            if(cellType == 0) {
+               newCell.appendChild(element);
+            }
+            else {
+               x = old_x;
+               y = old_y;
+            }
          }
       }
 

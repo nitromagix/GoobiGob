@@ -21,8 +21,21 @@ const grid = {
             cell.classList.add('cell');
             // cell.style.width = wh;     //   change in CSS
             // cell.style.height = wh;    //   change in CSS
-            cell.setAttribute('position', `[${x_index},${y_Index}]`);
+
             cell.textContent = '';
+
+         // const cellsMazeAttributes = `cell: ${cell.id} -> ${mazeData.maze[cell.id]}`;
+
+            const cellType = mazeData.maze[cell.id];
+            cell.setAttribute('cType', cellType);
+            if (cellType == 1) {
+               
+               cell.style.background = 'blue';
+            }
+
+            
+            // console.log(cellsMazeAttributes);
+
             row.append(cell);
          }
       };
