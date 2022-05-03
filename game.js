@@ -10,7 +10,7 @@ window.onload = async (e) => {
 };
 
 const main = async () => {
-   let grid = grid.buildGrid();
-   const goobi = goobi(10, 10)
+   let grd = grid.buildGrid();
+   const goo = goobi(10, 10);
 }
 
