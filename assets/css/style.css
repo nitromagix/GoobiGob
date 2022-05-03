@@ -12,7 +12,7 @@ body {
    padding:10px;
 }
 
-#maze {
+#grid {
    display: inline-block;
    width:auto;
    margin: 0 auto;
@@ -21,6 +21,10 @@ body {
    font-size: 0px;
 
 }
+
+/* #goobi {
+
+} */
 
 
 .cell {

@@ -17,10 +17,10 @@ const move = (element) => {
 
       function moveCharacter() {
          if (direction === 'right') {
-            x = x === MAZE_WIDTH ? MAZE_WIDTH : x + 1;
+            x = x === GRID_WIDTH ? GRID_WIDTH : x + 1;
          }
          if (direction === 'up') {
-            y = y === MAZE_HEIGHT ? MAZE_HEIGHT : y + 1;
+            y = y === GRID_HEIGHT ? GRID_HEIGHT : y + 1;
          }
          if (direction === 'left') {
             x = x === 0 ? 0 : x - 1;
@@ -30,7 +30,7 @@ const move = (element) => {
          }
 
          if (direction !== null) {
-            const newCell = document.getElementById(`c${x}-${y}`);
+            const newCell = document.getElementById(`c${x}_${y}`);
             newCell.appendChild(element)
          }
       }

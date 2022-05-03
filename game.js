@@ -1,8 +1,9 @@
 'use strict';
-const MAZE_WIDTH = 25;
-const MAZE_HEIGHT = 25;
+const GRID_WIDTH = 10;
+const GRID_HEIGHT = 10;
 const CELL_WIDTH_HEIGHT = 20;
 const MOVE_INTERVAL = 100;
+
 
 window.onload = async (e) => {
    await main();
@@ -10,7 +11,17 @@ window.onload = async (e) => {
 };
 
 const main = async () => {
-   let grid = grid.buildGrid();
-   const goobi = goobi(10, 10)
+   let grd = grid.buildGrid();
+   const goo = goobi(10, 10);
+   mazeData();
+
+   console.log(typeof configData);
 }
 
+const mazeData = () => {
+   fetch('./assets/mazes/defaultMaze.json')
+      .then(response => {
+         return response.json();
+      })
+      .then(jsondata => console.log(jsondata));
+}
