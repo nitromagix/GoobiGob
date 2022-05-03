@@ -16,7 +16,7 @@ const main = async () => {
 
    const mze = await maze.getData(MAZE_DATA_URL);
    const grd = grid.buildGrid(mze);
-   const goo = goobi(5, 5);
+   const goo = goobi(6, 5);
 }
 
 // const mazeData = async () => {

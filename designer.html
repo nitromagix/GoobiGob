@@ -19,17 +19,19 @@
       <header>
          header
       </header>
-      <div id="maze"></div>
+      <div id="grid"></div>
       <footer>
          footer
       </footer>
    </div>
+   <script src="./assets/js/maze.js"></script>
    <script src="./assets/js/grid.js"></script>
    <script>
       'use strict';
-      const MAZE_WIDTH = 20;
-      const MAZE_HEIGHT = 20;
-      const CELL_WIDTH_HEIGHT = 25;
+      const MAZE_DATA_URL = './assets/mazes/defaultMaze.json';
+      const GRID_WIDTH = 10;
+      const GRID_HEIGHT = 10;
+      const CELL_WIDTH_HEIGHT = 20;
 
       window.onload = async (e) => {
          await main();
@@ -37,7 +39,8 @@
       };
 
       const main = async () => {
-         let grd = grid.buildGrid();
+         const mze = await maze.getData(MAZE_DATA_URL);
+         const grd = grid.buildGrid(mze);
       }
    </script>
 </body>
