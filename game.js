@@ -1,8 +1,8 @@
 'use strict';
 
-const MAZE_DATA_URL = './assets/mazes/10x10_maze.json';
-const GRID_WIDTH = 10;
-const GRID_HEIGHT = 10;
+const MAZE_DATA_URL = './assets/mazes/20x20_maze.json';
+const GRID_WIDTH = 20;
+const GRID_HEIGHT = 20;
 const CELL_WIDTH_HEIGHT = 20;
 const MOVE_INTERVAL = 100;
 
@@ -16,7 +16,7 @@ const main = async () => {
 
    const mze = await maze.getData(MAZE_DATA_URL);
    const grd = grid.buildGrid(mze);
-   const goo = goobi(6, 5);
+   const goo = goobi(11, 5);
 }
 
 // const mazeData = async () => {
