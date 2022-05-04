@@ -5,4 +5,5 @@
 /// <reference path="grid.js" /> 
 /// <reference path="maze.js" /> 
 /// <reference path="move.js" /> 
+/// <reference path="score.js" /> 
 

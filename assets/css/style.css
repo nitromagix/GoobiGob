@@ -12,6 +12,10 @@ body {
    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
+h1{
+   margin: 0;
+}
+
 header {
    margin: 5px 0 5px;
    font-family: 'Urban';
@@ -35,9 +39,14 @@ header {
    background: dimgrey;
 }
 
-#score {
-   padding: 20px;
+#info {
+   padding: 10px 0 20px;
    color: white;
+   text-align: left;
+}
+
+#score::before {
+   content:'SCORE: ';
 }
 
 #player {

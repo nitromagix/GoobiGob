@@ -16,12 +16,12 @@ const main = async () => {
    const mze = await maze.getData(MAZE_DATA_URL);
    const grd = grid.buildGrid(mze);
    const goo = goobi(11, 5);
+   const scr = score();
 
    const dots = document.getElementsByClassName('dot');
-
    Array.prototype.forEach.call(dots, element => {
       element.addEventListener('eatDot', function (e) {
-         console.log(e);
+         scr.addDot();
       });
   });
 }
