@@ -37,6 +37,10 @@ const move = (element) => {
             const cellType = newCell.getAttribute('ctype');
             if(cellType == 0) {
                newCell.appendChild(element);
+               const dot = document.getElementById(`d${x}_${y}`)
+               if(dot){
+                  dot.remove();
+               }
             }
             else {
                x = old_x;
