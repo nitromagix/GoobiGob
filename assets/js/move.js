@@ -20,13 +20,13 @@ const move = (element) => {
          const old_y = y;
 
          if (direction === 'right') {
-            x = x === GRID_WIDTH ? GRID_WIDTH : x + 1;
+            x = x === GRID_WIDTH ? 0 : x + 1;
          }
          if (direction === 'up') {
             y = y === GRID_HEIGHT ? GRID_HEIGHT : y + 1;
          }
          if (direction === 'left') {
-            x = x === 0 ? 0 : x - 1;
+            x = x === 0 ? GRID_WIDTH : x - 1;
          }
          if (direction === 'down') {
             y = y === 0 ? 0 : y - 1;

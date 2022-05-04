@@ -24,18 +24,13 @@ const grid = {
 
             cell.textContent = '';
 
-         // const cellsMazeAttributes = `cell: ${cell.id} -> ${mazeData.maze[cell.id]}`;
-
             const cellType = mazeData.maze[cell.id];
             cell.setAttribute('cType', cellType);
             if (cellType == 1) {
                
-               cell.style.background = 'blue';
+               cell.classList.add('wall');
             }
-
             
-            // console.log(cellsMazeAttributes);
-
             row.append(cell);
          }
       };
