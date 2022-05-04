@@ -6,7 +6,6 @@ const GRID_HEIGHT = 20;
 const CELL_WIDTH_HEIGHT = 22;
 const MOVE_INTERVAL = 100;
 
-
 window.onload = async (e) => {
    await main();
 
@@ -17,6 +16,14 @@ const main = async () => {
    const mze = await maze.getData(MAZE_DATA_URL);
    const grd = grid.buildGrid(mze);
    const goo = goobi(11, 5);
+
+   const dots = document.getElementsByClassName('dot');
+
+   Array.prototype.forEach.call(dots, element => {
+      element.addEventListener('eatDot', function (e) {
+         console.log(e);
+      });
+  });
 }
 
 // const mazeData = async () => {

@@ -39,6 +39,7 @@ const move = (element) => {
                newCell.appendChild(element);
                const dot = document.getElementById(`d${x}_${y}`)
                if(dot){
+                  dot.dispatchEvent(eatDot);
                   dot.remove();
                }
             }
