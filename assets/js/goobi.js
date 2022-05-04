@@ -4,7 +4,7 @@ const goobi = (start_at_cell_x_index, start_at_cell_y_index) => {
    const wh = `${CELL_WIDTH_HEIGHT}px`
    const g = createSizedImage('./assets/images/g.static.gif', wh, wh)
    g.id = 'goobi';
-   g.style.zIndex = 1;
+   g.style.zIndex = 2;
 
    let prev = 'right';
    let deg = 0;

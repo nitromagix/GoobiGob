@@ -50,18 +50,28 @@ footer {
    color: yellow;
 }
 
-/* #goobi {
-
-} */
+#goobi {
+   position: relative;
+   top:0;
+   left:0;
+}
 
 .cell {
    display: inline-block;
-   border-radius: 4px;
-   width: 24px;
-   height: 24px;
+   position: relative;
+   width: 22px;
+   height: 22px;
    /* border: 1px solid black; */
 }
 
+.dot {
+   color: none;
+   position: absolute;
+   top:0;
+   left:0;
+}
+
 .wall {
+   border-radius: 4px;
    background: mediumblue;
 }
