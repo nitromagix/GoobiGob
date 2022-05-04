@@ -3,7 +3,7 @@
 const MAZE_DATA_URL = './assets/mazes/20x20_maze.json';
 const GRID_WIDTH = 20;
 const GRID_HEIGHT = 20;
-const CELL_WIDTH_HEIGHT = 20;
+const CELL_WIDTH_HEIGHT = 24;
 const MOVE_INTERVAL = 100;
 
 

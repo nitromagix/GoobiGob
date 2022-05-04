@@ -1,9 +1,22 @@
+@font-face {
+   font-family: "Urban";
+   src: url('../fonts/Urban_Blocker_Solid.ttf');
+}
+
 body {
    text-align: center;
    background-color: #202324;
    width: auto;
    height: auto;
    margin: auto;
+   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+header {
+   margin: 5px 0 5px;
+   font-family: 'Urban';
+   font-size: 99px;
+   color: yellow;
 }
 
 #container {
@@ -22,6 +35,21 @@ body {
    background: dimgrey;
 }
 
+#score {
+   padding: 20px;
+   color: white;
+}
+
+#player {
+   padding: 20px;
+   color: white;
+}
+
+footer {
+   margin: 20px 0 20px;
+   color: yellow;
+}
+
 /* #goobi {
 
 } */
@@ -29,8 +57,8 @@ body {
 .cell {
    display: inline-block;
    border-radius: 4px;
-   width: 20px;
-   height: 20px;
+   width: 24px;
+   height: 24px;
    /* border: 1px solid black; */
 }
 
