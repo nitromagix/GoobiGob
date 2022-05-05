@@ -4,7 +4,7 @@ const score = () => {
 
    let count = 0;
 
-   const scoreDot = () => {
+   const dot = () => {
       // console.log('score.scoreDot() -> count = ' + count)
       count += 100;
       const s = document.getElementById('score');
@@ -12,7 +12,7 @@ const score = () => {
    }
 
    return {
-      addDot : scoreDot
+      scoreDot : dot
    }
 
 }

@@ -2,7 +2,7 @@
 
 const goobi = (start_at_cell_x_index, start_at_cell_y_index) => {
    const wh = `${CELL_WIDTH_HEIGHT}px`
-   const g = createSizedImage('./assets/images/g.static.gif', wh, wh)
+   const g = createSizedImage('./assets/images/goobi.gif', wh, wh)
    g.id = 'goobi';
    g.style.zIndex = 2;
 
@@ -11,7 +11,6 @@ const goobi = (start_at_cell_x_index, start_at_cell_y_index) => {
 
    function handleDirectionChange(direction) {
       if (direction === null) {
-         // deg = (prev === 'down' ? 90 : prev === 'left' ? 180 : prev === 'up' ? -90 : 0);
          prev = 'right';
       }
       if (direction === 'left') {

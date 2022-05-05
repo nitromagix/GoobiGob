@@ -8,7 +8,6 @@ const MOVE_INTERVAL = 100;
 
 window.onload = async (e) => {
    await main();
-
 };
 
 const main = async () => {
@@ -21,13 +20,7 @@ const main = async () => {
    const dots = document.getElementsByClassName('dot');
    Array.prototype.forEach.call(dots, element => {
       element.addEventListener('eatDot', function (e) {
-         scr.addDot();
+         scr.scoreDot();
       });
   });
 }
-
-// const mazeData = async () => {
-//    const fetchMaze = await fetch('./assets/mazes/defaultMaze.json');
-//    const mazeJson = await fetchMaze.json();
-//    return mazeJson;
-// }

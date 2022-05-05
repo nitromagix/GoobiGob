@@ -37,6 +37,7 @@ header {
    line-height: 0px;
    font-size: 0px;
    background: dimgrey;
+   border-radius: 4px;
 }
 
 #info {
