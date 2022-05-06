@@ -2,7 +2,7 @@
 
 
 const grid = {
-   
+
    buildGrid: (mazeData) => {
 
       // console.log(mazeData);
@@ -10,7 +10,7 @@ const grid = {
       const wh = `${CELL_WIDTH_HEIGHT}px`
       const g = document.getElementById('grid');
       for (let y = 0; y <= GRID_HEIGHT; y++) {
-         const y_Index = GRID_HEIGHT - y;    //   give rows a y-index of (MAZE_HEIGHT - y) ... top row has (MAZE_HEIGHT - y), bottom row has index of (0) ... bottom left corner is [0,0]
+         const y_Index = GRID_HEIGHT - y; //   give rows a y-index of (MAZE_HEIGHT - y) ... top row has (MAZE_HEIGHT - y), bottom row has index of (0) ... bottom left corner is [0,0]
          const row = document.createElement('div');
          row.classList.add('row');
          g.append(row);
@@ -29,12 +29,11 @@ const grid = {
                d.id = `d${x_index}_${y_Index}`;
                d.classList.add('dot');
                d.style.zIndex = 1;
-               cell.append(d);          
-            }
-            else if (cellType == 1) {
+               cell.append(d);
+            } else if (cellType == 1) {
                cell.classList.add('wall');
             }
-            
+
             row.append(cell);
          }
       };

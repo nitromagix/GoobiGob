@@ -35,15 +35,14 @@ const move = (element) => {
          if (direction !== null) {
             const newCell = document.getElementById(`c${x}_${y}`);
             const cellType = newCell.getAttribute('ctype');
-            if(cellType == 0) {
+            if (cellType == 0) {
                newCell.appendChild(element);
                const dot = document.getElementById(`d${x}_${y}`)
-               if(dot){
-                  dot.dispatchEvent(eatDot);
+               if (dot) {
+                  dot.dispatchEvent(dotRemoved);
                   dot.remove();
                }
-            }
-            else {
+            } else {
                x = old_x;
                y = old_y;
             }

@@ -1,5 +1,5 @@
 
-const eatDot = new CustomEvent("eatDot", {
+const dotRemoved = new CustomEvent("dotRemoved", {
    detail: {},
    bubbles: true,
    cancelable: true,

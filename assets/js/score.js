@@ -6,13 +6,13 @@ const score = () => {
 
    const dot = () => {
       // console.log('score.scoreDot() -> count = ' + count)
-      count += 100;
+      count += 123;
       const s = document.getElementById('score');
       s.textContent = count;
    }
 
    return {
-      scoreDot : dot
+      scoreDot: dot
    }
 
 }

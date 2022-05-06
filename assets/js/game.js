@@ -19,7 +19,7 @@ const main = async () => {
 
    const dots = document.getElementsByClassName('dot');
    Array.prototype.forEach.call(dots, element => {
-      element.addEventListener('eatDot', function (e) {
+      element.addEventListener('dotRemoved', function (e) {
          scr.scoreDot();
       });
   });
