@@ -10,8 +10,15 @@ const score = () => {
       s.textContent = count;
    }
 
+   const pellet = () => {
+      count += 3169;
+      const s = document.getElementById('score');
+      s.textContent = count;
+   }
+
    return {
-      scoreDot: dot
+      scoreDot: dot,
+      scorePellet: pellet
    }
 
 }

@@ -27,6 +27,7 @@ const main = async () => {
    const pellets = document.getElementsByClassName('pellet');
    Array.prototype.forEach.call(pellets, element => {
       element.addEventListener('pelletEaten', function (e) {
+         scr.scorePellet();
          superPower();
       });
    });
