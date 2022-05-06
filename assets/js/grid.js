@@ -5,8 +5,6 @@ const grid = {
 
    buildGrid: (mazeData) => {
 
-      // console.log(mazeData);
-
       const wh = `${CELL_WIDTH_HEIGHT}px`
       const g = document.getElementById('grid');
       for (let y = 0; y <= GRID_HEIGHT; y++) {
@@ -24,15 +22,47 @@ const grid = {
 
             const cellType = mazeData.maze[cell.id];
             cell.setAttribute('cType', cellType);
-            if (cellType == 1 && x !== 0 && x !== GRID_WIDTH) {
-               const d = createSizedImage('./assets/images/dot.png', wh, wh)
-               d.id = `d${x_index}_${y_Index}`;
-               d.classList.add('dot');
-               d.style.zIndex = 1;
-               cell.append(d);
-            } else if (cellType == 0) {
-               cell.classList.add('wall');
+            switch(cellType) {
+               case '0': {
+                  // cl('create wall');
+                  cell.classList.add('wall');
+                  
+                  break;
+               }
+               case '1': {
+                  // cl('create dot');
+                  if (x !== 0 && x !== GRID_WIDTH) {
+                     const d = createSizedImage('./assets/images/dot.png', wh, wh)
+                     d.id = `d${x_index}_${y_Index}`;
+                     d.classList.add('dot');
+                     d.style.zIndex = 1;
+                     cell.append(d);
+                  }
+                  break;
+               }
+               case '2': {
+                  // cl('create power pellet');
+                  const d = createSizedImage('./assets/images/pellet.gif', '14px', '14px')
+                  d.id = `p${x_index}_${y_Index}`;
+                  d.classList.add('pellet');
+                  d.style.zIndex = 1;
+                  cell.append(d);                  
+                  break;
+               }
             }
+
+
+
+
+            // if (cellType == 1 && x !== 0 && x !== GRID_WIDTH) {
+            //    const d = createSizedImage('./assets/images/dot.png', wh, wh)
+            //    d.id = `d${x_index}_${y_Index}`;
+            //    d.classList.add('dot');
+            //    d.style.zIndex = 1;
+            //    cell.append(d);
+            // } else if (cellType == 0) {
+            //    cell.classList.add('wall');
+            // }
 
             row.append(cell);
          }

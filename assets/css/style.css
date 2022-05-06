@@ -76,10 +76,15 @@ footer {
 }
 
 .dot {
-   color: none;
    position: absolute;
    top:0;
    left:0;
+}
+
+.pellet {
+   position: absolute;
+   top:3px;
+   left:4px;
 }
 
 .wall {

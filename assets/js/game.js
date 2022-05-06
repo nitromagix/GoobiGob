@@ -19,8 +19,22 @@ const main = async () => {
 
    const dots = document.getElementsByClassName('dot');
    Array.prototype.forEach.call(dots, element => {
-      element.addEventListener('dotRemoved', function (e) {
+      element.addEventListener('dotEaten', function (e) {
          scr.scoreDot();
       });
-  });
+   });
+
+   const pellets = document.getElementsByClassName('pellet');
+   Array.prototype.forEach.call(pellets, element => {
+      element.addEventListener('pelletEaten', function (e) {
+         superPower();
+      });
+   });
+}
+
+const superPower = async () => {
+
+   const p = await new Promise(resolve => setTimeout(resolve, 2000));
+   cl(p)
+
 }

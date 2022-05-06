@@ -3,6 +3,7 @@
 /// <reference path="game.js" /> 
 /// <reference path="goobi.js" /> 
 /// <reference path="grid.js" /> 
+/// <reference path="helper.js" /> 
 /// <reference path="maze.js" /> 
 /// <reference path="move.js" /> 
 /// <reference path="score.js" /> 

@@ -35,8 +35,7 @@ const move = (element) => {
          if (direction !== null) {
             const newCell = document.getElementById(`c${x}_${y}`);
             const cellType = newCell.getAttribute('ctype');
-            console.log(cellType);
-            switch(cellType) {
+            switch (cellType) {
                case '0': {
                   x = old_x;
                   y = old_y;
@@ -44,14 +43,26 @@ const move = (element) => {
                }
                case '1': {
                   newCell.appendChild(element);
+                  /*
+                     THIS LOGIC DOESN'T BELONG IN THE MOVE FUNCTION BUT I DON'T KNOW WHERE HOW ELSE TO CODE THE GAME. YET.
+                  */
                   const dot = document.getElementById(`d${x}_${y}`)
                   if (dot) {
-                     dot.dispatchEvent(dotRemoved);
+                     dot.dispatchEvent(dotEaten);
                      dot.remove();
                   }
                   break;
                }
                case '2': {
+                  /*
+                     THIS LOGIC DOESN'T BELONG IN THE MOVE FUNCTION BUT I DON'T KNOW WHERE HOW ELSE TO CODE THE GAME. YET.
+                  */
+                  newCell.appendChild(element);
+                  const pellet = document.getElementById(`p${x}_${y}`)
+                  if (pellet) {
+                     pellet.dispatchEvent(pelletEaten);
+                     pellet.remove();
+                  }
                   break;
                }
             }
