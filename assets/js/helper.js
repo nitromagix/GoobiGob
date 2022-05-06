@@ -2,7 +2,7 @@
 
 
 
-const cl = (message) => {
+const qq = (message) => {
    console.log(message);
 }
 

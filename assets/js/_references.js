@@ -1,3 +1,4 @@
+/// <reference path="boardObjects.js" /> 
 /// <reference path="createImage.js" /> 
 /// <reference path="customEvents.js" /> 
 /// <reference path="game.js" /> 
