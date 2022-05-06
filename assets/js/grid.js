@@ -24,13 +24,13 @@ const grid = {
 
             const cellType = mazeData.maze[cell.id];
             cell.setAttribute('cType', cellType);
-            if (cellType == 0 && x !== 0 && x !== GRID_WIDTH) {
+            if (cellType == 1 && x !== 0 && x !== GRID_WIDTH) {
                const d = createSizedImage('./assets/images/dot.png', wh, wh)
                d.id = `d${x_index}_${y_Index}`;
                d.classList.add('dot');
                d.style.zIndex = 1;
                cell.append(d);
-            } else if (cellType == 1) {
+            } else if (cellType == 0) {
                cell.classList.add('wall');
             }
 
