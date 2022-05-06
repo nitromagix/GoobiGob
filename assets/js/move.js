@@ -95,10 +95,6 @@ const move = (element) => {
       })
    }
 
-   const wait = async (milliseconds) => {
-      await new Promise(resolve => setTimeout(resolve, 7));
-   }
-
    return {
       // to: moveToCoordinates,
       withArrowKeys: moveWithArrowKeys

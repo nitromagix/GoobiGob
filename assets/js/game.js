@@ -32,9 +32,4 @@ const main = async () => {
    });
 }
 
-const superPower = async () => {
 
-   const p = await new Promise(resolve => setTimeout(resolve, 2000));
-   cl(p)
-
-}

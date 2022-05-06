@@ -7,4 +7,5 @@
 /// <reference path="maze.js" /> 
 /// <reference path="move.js" /> 
 /// <reference path="score.js" /> 
+/// <reference path="superpower.js" /> 
 
