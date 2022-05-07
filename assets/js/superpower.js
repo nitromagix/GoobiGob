@@ -2,7 +2,7 @@
 
 const superPower = async () => {
    const walls = document.getElementsByClassName('wall');
-   const int = setInterval(
+   const intv = setInterval(
       function () {
          Array.prototype.forEach.call(walls, element => {
             element.style.backgroundColor = element.style.backgroundColor === 'navy' ? 'aquamarine' : 'navy';
@@ -12,5 +12,5 @@ const superPower = async () => {
    Array.prototype.forEach.call(walls, element => {
       element.style.backgroundColor = 'navy';
    });
-   clearInterval(int);
+   clearInterval(intv);
 }

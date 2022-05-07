@@ -11,6 +11,7 @@ window.onload = async (e) => {
 };
 
 const main = async (level) => {
+
    const mze = await maze.getData(MAZE_DATA_URL);
    const grd = grid.buildGrid(mze);
    const cob = cellObjects();
@@ -25,7 +26,7 @@ const main = async (level) => {
          cob.lessDot(dot);
          scr.scoreDot();
          if (cob.isEmpty()) {
-            alert('YOU WON!!!!!!!!!!!!!')
+            waitFor(1000).then(alert('YOU WON!!!!!!!!!!!!!'))
             // main(1);
          }
       });
@@ -39,7 +40,8 @@ const main = async (level) => {
          cob.lessPellet(pellet);
          scr.scorePellet();
          if (cob.isEmpty()) {
-            alert('YOU WON!!!!!!!!!!!!!')
+            waitFor(1000).then(alert('YOU WON!!!!!!!!!!!!!'))
+            // alert('YOU WON!!!!!!!!!!!!!')
             // main(1);
          }
          superPower();

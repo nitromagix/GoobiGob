@@ -50,20 +50,6 @@ const grid = {
                   break;
                }
             }
-
-
-
-
-            // if (cellType == 1 && x !== 0 && x !== GRID_WIDTH) {
-            //    const d = createSizedImage('./assets/images/dot.png', wh, wh)
-            //    d.id = `d${x_index}_${y_Index}`;
-            //    d.classList.add('dot');
-            //    d.style.zIndex = 1;
-            //    cell.append(d);
-            // } else if (cellType == 0) {
-            //    cell.classList.add('wall');
-            // }
-
             row.append(cell);
          }
       };

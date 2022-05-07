@@ -35,6 +35,36 @@ const move = (element) => {
          if (direction !== null) {
             const newCell = document.getElementById(`c${x}_${y}`);
             const cellType = newCell.getAttribute('ctype');
+
+            // if (cellType === '0') {
+            //    x = old_x;
+            //    y = old_y;
+            // } else {
+            //    newCell.appendChild(element);
+            //    //  I don't know how to do inheritance in javascript yet so 
+            //    //  I'm checking if the cell object is a dot or a pellet (which
+            //    //  is essentially a special dot)
+            //    const idPrefix = cellType === '1' ? 'd' : 'p';
+               
+            //    const cellObject = document.getElementById(`${idPrefix}${x}_${y}`)
+
+            //    if (cellObject) {
+            //       qq(cellObject);
+            //       const eventArgs = {
+            //          'character': element,
+            //          'cellObject': cellObject
+            //       };
+            //       const e = new CustomEvent("onDot", {
+            //          detail: eventArgs
+            //       });
+            //       cellObject.dispatchEvent(e);
+            //    }
+            // }
+
+
+
+
+
             switch (cellType) {
                case '0': {
                   x = old_x;
