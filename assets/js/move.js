@@ -60,8 +60,8 @@ const move = (element) => {
                   newCell.appendChild(element);
                   const pellet = document.getElementById(`p${x}_${y}`)
                   if (pellet) {
-                     pellet.dispatchEvent(pelletEaten);
                      pellet.remove();
+                     pellet.dispatchEvent(pelletEaten);
                   }
                   break;
                }

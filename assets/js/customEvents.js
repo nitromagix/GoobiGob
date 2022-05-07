@@ -1,3 +1,4 @@
+'use strict';
 
 const dotEaten = new CustomEvent("dotEaten", {
    detail: {},

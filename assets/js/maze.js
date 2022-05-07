@@ -1,3 +1,5 @@
+'use strict';
+
 const maze = {
 
    getData: async (mazeJsonUrl) => {
