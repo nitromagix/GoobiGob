@@ -43,27 +43,31 @@ const move = (element) => {
                }
                case '1': {
                   newCell.appendChild(element);
-                  /*
-                     THIS LOGIC DOESN'T BELONG IN THE MOVE FUNCTION BUT I DON'T KNOW WHERE HOW ELSE TO CODE THE GAME. YET.
-                  */
                   const dot = document.getElementById(`d${x}_${y}`)
-                  var evt = new CustomEvent("onDot", {detail: {'character': element, 'cellObject': dot}});
+                  const eventArgs = {
+                     'character': element,
+                     'cellObject': dot
+                  };
+                  var e = new CustomEvent("onDot", {
+                     detail: eventArgs
+                  });
                   if (dot) {
-                     dot.dispatchEvent(evt);
-                     dot.remove();
+                     dot.dispatchEvent(e);
                   }
                   break;
                }
                case '2': {
-                  /*
-                     THIS LOGIC DOESN'T BELONG IN THE MOVE FUNCTION BUT I DON'T KNOW WHERE HOW ELSE TO CODE THE GAME. YET.
-                  */
                   newCell.appendChild(element);
                   const pellet = document.getElementById(`p${x}_${y}`)
-                  var evt = new CustomEvent("onPellet", {detail: {'character': element, 'cellObject': pellet}});
-                 if (pellet) {
-                     pellet.remove();
-                     pellet.dispatchEvent(evt);
+                  const eventArgs = {
+                     'character': element,
+                     'cellObject': pellet
+                  };
+                  var e = new CustomEvent("onPellet", {
+                     detail: eventArgs
+                  });
+                  if (pellet) {
+                     pellet.dispatchEvent(e);
                   }
                   break;
                }

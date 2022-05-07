@@ -11,29 +11,34 @@ window.onload = async (e) => {
 };
 
 const main = async (level) => {
-   const m = maze, g = grid;
-   const mze = await m.getData(MAZE_DATA_URL);
-   const grd = g.buildGrid(mze);
-   const mob = cellObjects();
+   const mze = await maze.getData(MAZE_DATA_URL);
+   const grd = grid.buildGrid(mze);
+   const cob = cellObjects();
    const goo = goobi(11, 5);
    const scr = score();
 
-   Array.prototype.forEach.call(mob.dots, element => {
+   Array.prototype.forEach.call(cob.dots, element => {
       element.addEventListener('onDot', function (e) {
+         const eventArgs = e.detail;
+         // qq(eventArgs);
+         const dot = eventArgs.cellObject;
+         cob.lessDot(dot);
          scr.scoreDot();
-         mob.lessDot();
-         if (mob.isEmpty()){
+         if (cob.isEmpty()) {
             alert('YOU WON!!!!!!!!!!!!!')
             // main(1);
          }
       });
    });
 
-   Array.prototype.forEach.call(mob.pellets, element => {
+   Array.prototype.forEach.call(cob.pellets, element => {
       element.addEventListener('onPellet', function (e) {
+         const eventArgs = e.detail;
+         // qq(evetArgs);
+         const pellet = eventArgs.cellObject;
+         cob.lessPellet(pellet);
          scr.scorePellet();
-         mob.lessPellet();
-         if (mob.isEmpty()){
+         if (cob.isEmpty()) {
             alert('YOU WON!!!!!!!!!!!!!')
             // main(1);
          }
@@ -41,6 +46,3 @@ const main = async (level) => {
       });
    });
 }
-
-
-

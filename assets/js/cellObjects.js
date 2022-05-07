@@ -8,16 +8,18 @@ const cellObjects = () => {
    let dotLength = dotArray.length;
    let pelletLength = pelletArray.length;
 
-   const oneLessDot = () => {
+   const oneLessDot = (dot) => {
+      dot.remove();
       dotLength -= 1;
    }
 
-   const oneLessPellet = () => {
+   const oneLessPellet = (pellet) => {
+      pellet.remove();
       pelletLength -= 1;
    }
 
    const checkIfEmpty = () => {
-      qq(`dots: ${dotLength}; pellets: ${pelletLength}`)
+      // qq(`dots: ${dotLength}; pellets: ${pelletLength}`)
       return dotLength === 0 && pelletLength === 0;
    }
 
