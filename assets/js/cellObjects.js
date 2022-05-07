@@ -1,6 +1,6 @@
 'use strict';
 
-const boardObjects = () => {
+const cellObjects = () => {
 
    const dotArray = document.getElementsByClassName('dot');
    const pelletArray = document.getElementsByClassName('pellet');

@@ -47,8 +47,9 @@ const move = (element) => {
                      THIS LOGIC DOESN'T BELONG IN THE MOVE FUNCTION BUT I DON'T KNOW WHERE HOW ELSE TO CODE THE GAME. YET.
                   */
                   const dot = document.getElementById(`d${x}_${y}`)
+                  var evt = new CustomEvent("onDot", {detail: {'character': element, 'cellObject': dot}});
                   if (dot) {
-                     dot.dispatchEvent(dotEaten);
+                     dot.dispatchEvent(evt);
                      dot.remove();
                   }
                   break;
@@ -59,9 +60,10 @@ const move = (element) => {
                   */
                   newCell.appendChild(element);
                   const pellet = document.getElementById(`p${x}_${y}`)
-                  if (pellet) {
+                  var evt = new CustomEvent("onPellet", {detail: {'character': element, 'cellObject': pellet}});
+                 if (pellet) {
                      pellet.remove();
-                     pellet.dispatchEvent(pelletEaten);
+                     pellet.dispatchEvent(evt);
                   }
                   break;
                }

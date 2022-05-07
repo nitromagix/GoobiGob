@@ -1,5 +1,4 @@
-/// <reference path="boardObjects.js" /> 
-/// <reference path="createImage.js" /> 
+/// <reference path="cellObjects.js" /> 
 /// <reference path="customEvents.js" /> 
 /// <reference path="game.js" /> 
 /// <reference path="goobi.js" /> 

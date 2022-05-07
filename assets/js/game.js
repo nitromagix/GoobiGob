@@ -11,29 +11,29 @@ window.onload = async (e) => {
 };
 
 const main = async (level) => {
-
-   const mze = await maze.getData(MAZE_DATA_URL);
-   const grd = grid.buildGrid(mze);
-   const bob = boardObjects();
+   const m = maze, g = grid;
+   const mze = await m.getData(MAZE_DATA_URL);
+   const grd = g.buildGrid(mze);
+   const mob = cellObjects();
    const goo = goobi(11, 5);
    const scr = score();
 
-   Array.prototype.forEach.call(bob.dots, element => {
-      element.addEventListener('dotEaten', function (e) {
+   Array.prototype.forEach.call(mob.dots, element => {
+      element.addEventListener('onDot', function (e) {
          scr.scoreDot();
-         bob.lessDot();
-         if (bob.isEmpty()){
+         mob.lessDot();
+         if (mob.isEmpty()){
             alert('YOU WON!!!!!!!!!!!!!')
             // main(1);
          }
       });
    });
 
-   Array.prototype.forEach.call(bob.pellets, element => {
-      element.addEventListener('pelletEaten', function (e) {
+   Array.prototype.forEach.call(mob.pellets, element => {
+      element.addEventListener('onPellet', function (e) {
          scr.scorePellet();
-         bob.lessPellet();
-         if (bob.isEmpty()){
+         mob.lessPellet();
+         if (mob.isEmpty()){
             alert('YOU WON!!!!!!!!!!!!!')
             // main(1);
          }
