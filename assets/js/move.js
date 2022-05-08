@@ -61,10 +61,6 @@ const move = (element) => {
             //    }
             // }
 
-
-
-
-
             switch (cellType) {
                case '0': {
                   x = old_x;
@@ -110,14 +106,14 @@ const move = (element) => {
       document.addEventListener('keydown', function (e) {
          if (e.repeat) return;
 
-         if (e.key === 'ArrowLeft') {
-            direction = 'left'
+         if (e.key === 'ArrowRight') {
+            direction = 'right'
          }
          if (e.key === 'ArrowUp') {
             direction = 'up'
          }
-         if (e.key === 'ArrowRight') {
-            direction = 'right'
+         if (e.key === 'ArrowLeft') {
+            direction = 'left'
          }
          if (e.key === 'ArrowDown') {
             direction = 'down'

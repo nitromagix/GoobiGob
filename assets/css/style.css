@@ -23,6 +23,12 @@ header {
    color: yellow;
 }
 
+footer {
+   margin: 20px 0 20px;
+   color: yellow;
+   font-size: 10px;
+}
+
 #container {
    display: inline-block;
    width: auto;
@@ -55,16 +61,18 @@ header {
    color: white;
 }
 
-footer {
-   margin: 20px 0 20px;
-   color: yellow;
-   font-size: 10px;
-}
-
 #goobi {
    position: relative;
    top:0;
    left:0;
+   z-index: 3;
+}
+
+.ghost {
+   position: relative;
+   top:0;
+   left:0;
+   z-index: 2;
 }
 
 .cell {
@@ -79,6 +87,7 @@ footer {
    position: absolute;
    top:0;
    left:0;
+   z-index: 1;
 }
 
 .pellet {

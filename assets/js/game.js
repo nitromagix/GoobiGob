@@ -16,6 +16,7 @@ const main = async (level) => {
    const grd = grid.buildGrid(mze);
    const cob = cellObjects();
    const goo = goobi(11, 5);
+   const gh1 = ghost(15,10);
    const scr = score();
 
    Array.prototype.forEach.call(cob.dots, element => {
