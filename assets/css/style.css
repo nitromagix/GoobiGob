@@ -65,14 +65,23 @@ footer {
    position: relative;
    top:0;
    left:0;
-   z-index: 3;
+   z-index: 2;
 }
 
 .ghost {
-   position: relative;
+   position: absolute;
+   top:0;
+   left:0;
+   z-index: 3;
+   /* background: url('../images/ghostStatic.png'); */
+}
+
+.weakGhost {
+   position: absolute;
    top:0;
    left:0;
    z-index: 2;
+   /* background: url('../images/ghost_.gif'); */
 }
 
 .cell {

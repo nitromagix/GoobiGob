@@ -4,7 +4,8 @@ const goobi = (start_at_cell_x_index, start_at_cell_y_index) => {
    const wh = `${CELL_WIDTH_HEIGHT}px`;
    const g = createSizedImage('./assets/images/goobi.gif', wh, wh);
    g.id = 'goobi';
-
+   const newCell = document.getElementById(`c${start_at_cell_x_index}_${start_at_cell_y_index}`);
+   newCell.appendChild(g);
    let prev = 'right';
    let deg = 0;
 

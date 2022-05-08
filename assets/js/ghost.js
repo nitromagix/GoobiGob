@@ -2,12 +2,12 @@
 
 function ghost(x, y) {
    const wh = `${CELL_WIDTH_HEIGHT}px`;
-      let element = createSizedImage('assets/images/ghostStatic.png', wh, wh)
+   let element = createSizedImage('assets/images/ghostStatic.png', wh, wh)
    element.classList.add('ghost');
 
    let direction = null;
 
-   function moveCharacter() {
+   function moveGhost() {
       if (direction === 'right') {
          x = x === GRID_WIDTH ? 0 : x + 1;
       }
@@ -25,39 +25,39 @@ function ghost(x, y) {
       newCell.appendChild(element);
    }
 
-   setInterval(moveCharacter, 1)
+   setInterval(moveGhost, GHOST_INTERVAL)
 
-   async function walkEast(time) {
+   async function right(time) {
       direction = 'right'
-      element.src = `./assets/images/ghostStatic.png`
+      // element.src = `./assets/images/ghostStatic.png`
       await sleep(time);
       stop();
    }
 
-   async function walkNorth(time) {
+   async function up(time) {
       direction = 'up'
-      element.src = `./assets/images/ghostStatic.png`
+      // element.src = `./assets/images/ghostStatic.png`
       await sleep(time);
       stop();
    }
 
-   async function walkWest(time) {
+   async function left(time) {
       direction = 'left'
-      element.src = `./assets/images/ghostStatic.png`
+      // element.src = `./assets/images/ghostStatic.png`
       await sleep(time);
       stop();
    }
 
-   async function walkSouth(time) {
+   async function down(time) {
       direction = 'down'
-      element.src = `./assets/images/ghostStatic.png`
+      // element.src = `./assets/images/ghostStatic.png`
       await sleep(time);
       stop();
    }
 
    function stop() {
       direction = null
-      element.src = `./assets/images/ghostStatic.png`
+      // element.src = `./assets/images/ghostStatic.png`
    }
 
    function sleep(time) {
@@ -68,10 +68,10 @@ function ghost(x, y) {
 
    return {
       element: element,
-      walkWest: walkWest,
-      walkNorth: walkNorth,
-      walkEast: walkEast,
-      walkSouth: walkSouth,
+      moveLeft: left,
+      moveUp: up,
+      moveRight: right,
+      moveDown: down,
       stop: stop
    }
 }

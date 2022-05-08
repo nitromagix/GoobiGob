@@ -3,7 +3,7 @@
 const TIMEOUT = 200
 
 const move = (element) => {
-   element.style.position = 'relative'
+
 
    // function moveToCoordinates(left, bottom) {
    //    element.style.left = left + 'px'
