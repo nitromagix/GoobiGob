@@ -15,7 +15,9 @@ const superPower = async () => {
    Array.prototype.forEach.call(ghosts, element => {
       // element.classList.remove('ghost');
       // element.classList.add('weakghost');
-      element.src = './assets/images/ghost_.gif';
+      let imageSrc = element.src;
+      imageSrc = imageSrc.replace('.png', '_.gif');
+      element.src = imageSrc;
    });
    await waitFor(5678);
    Array.prototype.forEach.call(walls, element => {
@@ -24,7 +26,9 @@ const superPower = async () => {
    Array.prototype.forEach.call(ghosts, element => {
       // element.classList.remove('weakghost');
       // element.classList.add('ghost');
-      element.src = './assets/images/ghostStatic.png';
+      let imageSrc = element.src;
+      imageSrc = imageSrc.replace('_.gif', '.png');
+      element.src = imageSrc;
    });
    clearInterval(intv);
 }

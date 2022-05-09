@@ -2,7 +2,7 @@
 
 function ghost(id, x, y) {
    const wh = `${CELL_WIDTH_HEIGHT}px`;
-   let element = createSizedImage('assets/images/ghostStatic.png', wh, wh)
+   let element = createSizedImage(`assets/images/ghost${id}.png`, wh, wh)
    element.classList.add('ghost');
 
    let direction = null;
@@ -30,31 +30,26 @@ function ghost(id, x, y) {
    // setInterval(moveGhost, GHOST_INTERVAL)
 
    async function right(numberOfTimes) {
-      qq('right')
       direction = 'right';
       await sleepThenmove(numberOfTimes);
-      // element.src = `./assets/images/ghostStatic.png`;
       stop();
    }
 
    async function up(numberOfTimes) {
       direction = 'up';
       await sleepThenmove(numberOfTimes);
-      // element.src = `./assets/images/ghostStatic.png`;
       stop();
    }
 
    async function left(numberOfTimes) {
       direction = 'left';
       await sleepThenmove(numberOfTimes);
-      // element.src = `./assets/images/ghostStatic.png`;
       stop();
    }
 
    async function down(numberOfTimes) {
       direction = 'down'
       await sleepThenmove(numberOfTimes);
-      // element.src = `./assets/images/ghostStatic.png`
       stop();
    }
 
@@ -75,6 +70,7 @@ function ghost(id, x, y) {
          setTimeout(resolve, time)
       })
    }
+   
 
    return {
       element: element,

@@ -17,29 +17,51 @@ const main = async (level) => {
    const _grid = grid.buildGrid(_maze);
    const _cellObjects = cellObjects();
    const _goobi = goobi(10, 5);
-   const _ghost1 = ghost('a', 10, 13)
-   const _ghost2 = ghost('b', 11, 13)
-   const scr = score();
+   const _ghostA = ghost('A', 10, 14)
+   const _ghost2 = ghost('B', 9, 13)
+   const _ghost3 = ghost('C', 10, 13)
+   const _ghost4 = ghost('D', 11, 13)
+   const _score = score();
 
-   async function moveGhost1() {
+   const moveGhostA = async () => {
       if (!document.stop) {
-         await _ghost1.moveUp(2);
-         await _ghost1.moveRight(9);
-         await _ghost1.moveDown(2);
-         await _ghost1.moveLeft(6);
-         await _ghost1.moveUp(6);
-         // await moveGhost1();
+         await _ghostA.moveUp(1);
+         await _ghostA.moveRight(9);
+         await _ghostA.moveDown(2);
+         await _ghostA.moveLeft(6);
+         await _ghostA.moveUp(6);
+         await _ghostA.moveRight(4);
+         await _ghostA.moveDown(4);
+         await _ghostA.moveRight(2);
+         await _ghostA.moveDown(4);
+         await _ghostA.moveLeft(4);
+         await _ghostA.moveDown(6);
+         await _ghostA.moveLeft(6);
+         await _ghostA.moveDown(4);
+         await _ghostA.moveLeft(8);
+         await _ghostA.moveUp(2);
+         await _ghostA.moveRight(8);
+         await _ghostA.moveUp(6);
+         await _ghostA.moveLeft(4);
+         await _ghostA.moveUp(2);
+         await _ghostA.moveLeft(4);
+         await _ghostA.moveUp(2);
+         await _ghostA.moveRight(6);
+         await _ghostA.moveUp(2);
+         await _ghostA.moveRight(3);
+         await _ghostA.moveDown(1);
+         await moveGhostA();
       }
    }
 
-   moveGhost1();
+   moveGhostA();
 
    const goobiEncounterDot = (e) => {
       const eventArgs = e.detail;
       // qq(eventArgs);
       const dot = eventArgs.cellObject;
       _cellObjects.lessDot(dot);
-      scr.scoreDot();
+      _score.scoreDot();
       if (_cellObjects.isEmpty()) {
          waitFor(1000).then(alert('YOU WON!!!!!!!!!!!!!'))
          // main(1);
@@ -51,7 +73,7 @@ const main = async (level) => {
       // qq(evetArgs);
       const pellet = eventArgs.cellObject;
       _cellObjects.lessPellet(pellet);
-      scr.scorePellet();
+      _score.scorePellet();
       if (_cellObjects.isEmpty()) {
          waitFor(1000).then(alert('YOU WON!!!!!!!!!!!!!'))
          // alert('YOU WON!!!!!!!!!!!!!')
@@ -59,6 +81,7 @@ const main = async (level) => {
       }
       superPower();
    }
+   
 
    Array.prototype.forEach.call(_cellObjects.dots, element => {
       element.addEventListener('onDot', goobiEncounterDot);
