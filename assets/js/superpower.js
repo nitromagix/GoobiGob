@@ -1,4 +1,5 @@
 'use strict';
+const WALL_FLASH_INTERVAL = 250;
 
 const superPower = async () => {
    const walls = document.getElementsByClassName('wall');
@@ -10,7 +11,7 @@ const superPower = async () => {
          Array.prototype.forEach.call(walls, element => {
             element.style.backgroundColor = element.style.backgroundColor === 'navy' ? 'aquamarine' : 'navy';
          });
-      }, 250);
+      }, WALL_FLASH_INTERVAL);
    const ghosts = document.getElementsByClassName('ghost');
    Array.prototype.forEach.call(ghosts, element => {
       // element.classList.remove('ghost');
