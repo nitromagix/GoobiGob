@@ -1,6 +1,6 @@
 'use strict';
 
-function ghost(x, y) {
+function ghost(id, x, y) {
    const wh = `${CELL_WIDTH_HEIGHT}px`;
    let element = createSizedImage('assets/images/ghostStatic.png', wh, wh)
    element.classList.add('ghost');
@@ -25,34 +25,44 @@ function ghost(x, y) {
       newCell.appendChild(element);
    }
 
-   setInterval(moveGhost, GHOST_INTERVAL)
+   moveGhost();
 
-   async function right(time) {
-      direction = 'right'
-      // element.src = `./assets/images/ghostStatic.png`
-      await sleep(time);
+   // setInterval(moveGhost, GHOST_INTERVAL)
+
+   async function right(numberOfTimes) {
+      qq('right')
+      direction = 'right';
+      await sleepThenmove(numberOfTimes);
+      // element.src = `./assets/images/ghostStatic.png`;
       stop();
    }
 
-   async function up(time) {
-      direction = 'up'
-      // element.src = `./assets/images/ghostStatic.png`
-      await sleep(time);
+   async function up(numberOfTimes) {
+      direction = 'up';
+      await sleepThenmove(numberOfTimes);
+      // element.src = `./assets/images/ghostStatic.png`;
       stop();
    }
 
-   async function left(time) {
-      direction = 'left'
-      // element.src = `./assets/images/ghostStatic.png`
-      await sleep(time);
+   async function left(numberOfTimes) {
+      direction = 'left';
+      await sleepThenmove(numberOfTimes);
+      // element.src = `./assets/images/ghostStatic.png`;
       stop();
    }
 
-   async function down(time) {
+   async function down(numberOfTimes) {
       direction = 'down'
+      await sleepThenmove(numberOfTimes);
       // element.src = `./assets/images/ghostStatic.png`
-      await sleep(time);
       stop();
+   }
+
+   const sleepThenmove = async (numberOfTimes) => {
+      for (let i = 0; i < numberOfTimes; i++) {
+         await sleep(GHOST_INTERVAL);
+         moveGhost();
+      }
    }
 
    function stop() {

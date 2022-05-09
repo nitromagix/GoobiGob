@@ -4,12 +4,6 @@ const TIMEOUT = 200
 
 const move = (element) => {
 
-
-   // function moveToCoordinates(left, bottom) {
-   //    element.style.left = left + 'px'
-   //    element.style.bottom = bottom + 'px'
-   // }
-
    async function moveWithArrowKeys(x_index, y_index, callback) {
       let direction = null;
       let x = x_index;
@@ -45,7 +39,7 @@ const move = (element) => {
             //    //  I'm checking if the cell object is a dot or a pellet (which
             //    //  is essentially a special dot)
             //    const idPrefix = cellType === '1' ? 'd' : 'p';
-               
+
             //    const cellObject = document.getElementById(`${idPrefix}${x}_${y}`)
 
             //    if (cellObject) {
@@ -67,17 +61,18 @@ const move = (element) => {
                   y = old_y;
                   break;
                }
-               case '1': {
+               case '1':
+               case '4': {
                   newCell.appendChild(element);
                   const dot = document.getElementById(`d${x}_${y}`)
-                  const eventArgs = {
-                     'character': element,
-                     'cellObject': dot
-                  };
-                  var e = new CustomEvent("onDot", {
-                     detail: eventArgs
-                  });
                   if (dot) {
+                     const eventArgs = {
+                        'character': element,
+                        'cellObject': dot
+                     };
+                     var e = new CustomEvent("onDot", {
+                        detail: eventArgs
+                     });
                      dot.dispatchEvent(e);
                   }
                   break;
@@ -85,16 +80,22 @@ const move = (element) => {
                case '2': {
                   newCell.appendChild(element);
                   const pellet = document.getElementById(`p${x}_${y}`)
-                  const eventArgs = {
-                     'character': element,
-                     'cellObject': pellet
-                  };
-                  var e = new CustomEvent("onPellet", {
-                     detail: eventArgs
-                  });
                   if (pellet) {
+                     const eventArgs = {
+                        'character': element,
+                        'cellObject': pellet
+                     };
+                     var e = new CustomEvent("onPellet", {
+                        detail: eventArgs
+                     });
+
                      pellet.dispatchEvent(e);
                   }
+                  break;
+               }
+               case '3': {
+                  x = old_x;
+                  y = old_y;
                   break;
                }
             }
@@ -128,7 +129,6 @@ const move = (element) => {
    }
 
    return {
-      // to: moveToCoordinates,
       withArrowKeys: moveWithArrowKeys
    }
 }

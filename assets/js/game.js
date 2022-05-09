@@ -17,20 +17,18 @@ const main = async (level) => {
    const _grid = grid.buildGrid(_maze);
    const _cellObjects = cellObjects();
    const _goobi = goobi(10, 5);
-   const _ghost1 = ghost(10,15)
-   const _ghost2 = ghost(12,15)
+   const _ghost1 = ghost('a', 10, 13)
+   const _ghost2 = ghost('b', 11, 13)
    const scr = score();
 
    async function moveGhost1() {
       if (!document.stop) {
-         await _ghost1.moveRight(1);
-         // await _ghost1.moveDown(1);
-         // await npc.walkSouth(300);
-         // await npc.walkEast(1500);
-         // await npc.walkSouth(1500);
-         // await npc.walkWest(2700);
-         // await npc.walkNorth(400);
-         await moveGhost1();
+         await _ghost1.moveUp(2);
+         await _ghost1.moveRight(9);
+         await _ghost1.moveDown(2);
+         await _ghost1.moveLeft(6);
+         await _ghost1.moveUp(6);
+         // await moveGhost1();
       }
    }
 
@@ -72,6 +70,3 @@ const main = async (level) => {
 
 
 }
-
-
-
