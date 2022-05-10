@@ -23,6 +23,26 @@ const main = async (level) => {
    const _ghostD = ghost('D', 11, 13)
    const _score = score();
 
+   window.addEventListener('ghostMove', (e) => {
+      // qq(`id: ${e.detail.id}, x: ${e.detail.x}, y: ${e.detail.y}`)
+      // qq(`x: ${_goobi.element.getAttribute('xPos')}, y: ${_goobi.element.getAttribute('yPos')}`)
+      const ghostX = e.detail.x;
+      const ghostY = e.detail.y;
+      const goobiX = _goobi.element.getAttribute('xPos');
+      const goobiY = _goobi.element.getAttribute('yPos');
+      if (
+         (ghostX == goobiX  && ghostY == goobiY) || 
+         (ghostX == goobiX - 1  && ghostY == goobiY) ||
+         (ghostX == goobiX  && ghostY == goobiY - 1) ||
+         (ghostX == goobiX - 1  && ghostY == goobiY - 1)
+         ) {
+         alert('you lost. please try again');
+         const gridToRemove = document.getElementById('grid');
+         gridToRemove.innerHTML = '';
+         location.reload();
+      }
+   })
+
    const goobiEncounterDot = (e) => {
       const eventArgs = e.detail;
       // qq(eventArgs);
@@ -30,8 +50,8 @@ const main = async (level) => {
       _cellObjects.lessDot(dot);
       _score.scoreDot();
       if (_cellObjects.isEmpty()) {
-         waitFor(1000).then(alert('YOU WON!!!!!!!!!!!!!'))
-         // main(1);
+         alert('YOU WON!!!!!!!!!!!!!')
+         location.reload();
       }
    }
 
@@ -42,20 +62,19 @@ const main = async (level) => {
       _cellObjects.lessPellet(pellet);
       _score.scorePellet();
       if (_cellObjects.isEmpty()) {
-         waitFor(1000).then(alert('YOU WON!!!!!!!!!!!!!'))
-         // alert('YOU WON!!!!!!!!!!!!!')
-         // main(1);
+         alert('YOU WON!!!!!!!!!!!!!')
+         location.reload();
       }
       superPowerMode().start();
    }
-   
+
 
    Array.prototype.forEach.call(_cellObjects.dots, element => {
-      element.addEventListener('onDot', goobiEncounterDot);
+      element.addEventListener('dotEaten', goobiEncounterDot);
    });
 
    Array.prototype.forEach.call(_cellObjects.pellets, element => {
-      element.addEventListener('onPellet', goobiEncountersPellet);
+      element.addEventListener('pelletEaten', goobiEncountersPellet);
    });
 
    const moveGhostA = async () => {
@@ -199,11 +218,11 @@ const main = async (level) => {
    await _ghostA.moveUp(1);
    moveGhostA()
    await _ghostB.moveRight(1);
-   await _ghostB.moveUp(2);  
+   await _ghostB.moveUp(2);
    moveGhostB();
    await _ghostC.moveUp(2);
    moveGhostC();
    await _ghostD.moveLeft(1);
-   await _ghostD.moveUp(2); 
+   await _ghostD.moveUp(2);
    moveGhostD();
 }

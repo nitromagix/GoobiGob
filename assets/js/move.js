@@ -2,7 +2,7 @@
 
 const TIMEOUT = 200
 
-const move = (element) => {
+const move = (goobiElement) => {
 
    async function moveWithArrowKeys(x_index, y_index, callback) {
       let direction = null;
@@ -63,14 +63,16 @@ const move = (element) => {
                }
                case '1':
                case '4': {
-                  newCell.appendChild(element);
+                  goobiElement.setAttribute('xPos', x);
+                  goobiElement.setAttribute('yPos', y);
+                  newCell.appendChild(goobiElement);
                   const dot = document.getElementById(`d${x}_${y}`)
                   if (dot) {
                      const eventArgs = {
-                        'character': element,
+                        'character': goobiElement,
                         'cellObject': dot
                      };
-                     var e = new CustomEvent("onDot", {
+                     var e = new CustomEvent("dotEaten", {
                         detail: eventArgs
                      });
                      dot.dispatchEvent(e);
@@ -78,14 +80,16 @@ const move = (element) => {
                   break;
                }
                case '2': {
-                  newCell.appendChild(element);
+                  goobiElement.setAttribute('xPos', x);
+                  goobiElement.setAttribute('yPos', y);
+                  newCell.appendChild(goobiElement);
                   const pellet = document.getElementById(`p${x}_${y}`)
                   if (pellet) {
                      const eventArgs = {
-                        'character': element,
+                        'character': goobiElement,
                         'cellObject': pellet
                      };
-                     var e = new CustomEvent("onPellet", {
+                     var e = new CustomEvent("pelletEaten", {
                         detail: eventArgs
                      });
 

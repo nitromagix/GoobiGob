@@ -2,8 +2,8 @@
 
 function ghost(id, x, y) {
    const wh = `${CELL_WIDTH_HEIGHT}px`;
-   let element = createSizedImage(`assets/images/ghost${id}.png`, wh, wh)
-   element.classList.add('ghost');
+   let aGhost = createSizedImage(`assets/images/ghost${id}.png`, wh, wh)
+   aGhost.classList.add('ghost');
 
    let direction = null;
 
@@ -22,7 +22,17 @@ function ghost(id, x, y) {
       }
 
       const newCell = document.getElementById(`c${x}_${y}`);
-      newCell.appendChild(element);
+      newCell.appendChild(aGhost);
+      const eventArgs = {
+         'id': aGhost.id,
+         'x': x,
+         'y': y
+      };
+      var e = new CustomEvent("ghostMove", {
+         detail: eventArgs
+      });
+
+      window.dispatchEvent(e);
    }
 
    moveGhost();
@@ -31,29 +41,29 @@ function ghost(id, x, y) {
 
    async function right(numberOfTimes) {
       direction = 'right';
-      await sleepThenmove(numberOfTimes);
+      await moveTimes(numberOfTimes);
       stop();
    }
 
    async function up(numberOfTimes) {
       direction = 'up';
-      await sleepThenmove(numberOfTimes);
+      await moveTimes(numberOfTimes);
       stop();
    }
 
    async function left(numberOfTimes) {
       direction = 'left';
-      await sleepThenmove(numberOfTimes);
+      await moveTimes(numberOfTimes);
       stop();
    }
 
    async function down(numberOfTimes) {
       direction = 'down'
-      await sleepThenmove(numberOfTimes);
+      await moveTimes(numberOfTimes);
       stop();
    }
 
-   const sleepThenmove = async (numberOfTimes) => {
+   const moveTimes = async (numberOfTimes) => {
       for (let i = 0; i < numberOfTimes; i++) {
          await sleep(GHOST_INTERVAL);
          moveGhost();
@@ -73,7 +83,7 @@ function ghost(id, x, y) {
    
 
    return {
-      element: element,
+      element: aGhost,
       moveLeft: left,
       moveUp: up,
       moveRight: right,
