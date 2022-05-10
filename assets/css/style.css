@@ -73,7 +73,6 @@ footer {
    top:0;
    left:0;
    z-index: 3;
-   /* background: url('../images/ghostStatic.png'); */
 }
 
 .weakGhost {
@@ -81,7 +80,6 @@ footer {
    top:0;
    left:0;
    z-index: 2;
-   /* background: url('../images/ghost_.gif'); */
 }
 
 .cell {
@@ -89,7 +87,6 @@ footer {
    position: relative;
    width: 22px;
    height: 22px;
-   /* border: 1px solid black; */
 }
 
 .dot {
