@@ -1,5 +1,5 @@
-GoobiGob
+<h1>GoobiGob</h2>
 
 by Martin Prost
 
-This game is a clone of Pac-man.
+<p>This game is a clone of Pac-man.</p>
