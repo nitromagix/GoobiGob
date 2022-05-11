@@ -5,7 +5,7 @@ const superPowerMode = () => {
 
    let isInMode = false;
    const start = async (callback) => {
-      callback('1');
+      callback(1);
       const walls = document.getElementsByClassName('wall');
       Array.prototype.forEach.call(walls, element => {
          element.style.backgroundColor = 'aquamarine';
@@ -35,7 +35,7 @@ const superPowerMode = () => {
          imageSrc = imageSrc.replace('_.gif', '.png');
          element.src = imageSrc;
       });
-      callback('0');
+      callback(0);
       clearInterval(intv);
 
    }

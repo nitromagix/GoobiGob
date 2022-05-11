@@ -44,7 +44,9 @@ const main = async (level) => {
          (ghostX == goobiX && ghostY == goobiY - 1) ||
          (ghostX == goobiX - 1 && ghostY == goobiY - 1)
       ) {
+         // qq(inSuperMode)
          if (!inSuperMode) {
+            qq(inSuperMode)
             // get killed
             alert('you lost. please try again');
             const gridToRemove = document.getElementById('grid');
