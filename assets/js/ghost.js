@@ -2,8 +2,9 @@
 
 function ghost(id, x, y) {
    const wh = `${CELL_WIDTH_HEIGHT}px`;
-   let aGhost = createSizedImage(`assets/images/ghost${id}.png`, wh, wh)
-   aGhost.classList.add('ghost');
+   let theGhost = createSizedImage(`assets/images/ghost${id}.png`, wh, wh)
+   theGhost.id = `ghost${id}`
+   theGhost.classList.add('ghost');
 
    let direction = null;
 
@@ -22,11 +23,11 @@ function ghost(id, x, y) {
       }
 
       const newCell = document.getElementById(`c${x}_${y}`);
-      newCell.appendChild(aGhost);
+      newCell.appendChild(theGhost);
       const eventArgs = {
-         'id': aGhost.id,
-         'x': x,
-         'y': y
+         'theGhost': theGhost,
+         'xPos': x,
+         'yPos': y
       };
       var e = new CustomEvent("ghostMove", {
          detail: eventArgs
@@ -83,7 +84,7 @@ function ghost(id, x, y) {
    
 
    return {
-      element: aGhost,
+      element: theGhost,
       moveLeft: left,
       moveUp: up,
       moveRight: right,

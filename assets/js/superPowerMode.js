@@ -3,8 +3,9 @@ const WALL_FLASH_INTERVAL = 250;
 
 const superPowerMode = () => {
 
-   const start = async () => {
-
+   let isInMode = false;
+   const start = async (callback) => {
+      callback('1');
       const walls = document.getElementsByClassName('wall');
       Array.prototype.forEach.call(walls, element => {
          element.style.backgroundColor = 'aquamarine';
@@ -34,10 +35,13 @@ const superPowerMode = () => {
          imageSrc = imageSrc.replace('_.gif', '.png');
          element.src = imageSrc;
       });
+      callback('0');
       clearInterval(intv);
+
    }
 
    return {
       start: start,
+      inMode: isInMode
    }
 }

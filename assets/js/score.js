@@ -4,21 +4,30 @@ const score = () => {
 
    let count = 0;
 
-   const dot = () => {
+   const getDot = () => {
       count += 123;
-      const s = document.getElementById('score');
-      s.textContent = count;
+      updateScore();
    }
 
-   const pellet = () => {
+   const getPellet = () => {
       count += 3169;
+      updateScore();
+   }
+
+   const getGhost = () => {
+      count += 7138;
+      updateScore();
+   }
+
+   const updateScore = () => {
       const s = document.getElementById('score');
       s.textContent = count;
    }
 
    return {
-      scoreDot: dot,
-      scorePellet: pellet
+      scoreDot: getDot,
+      scorePellet: getPellet,
+      scoreGhost: getGhost
    }
 
 }

@@ -4,12 +4,17 @@ const MAZE_DATA_URL = './assets/mazes/20x20_maze.json';
 const GRID_WIDTH = 20;
 const GRID_HEIGHT = 20;
 const CELL_WIDTH_HEIGHT = 22;
-const MOVE_INTERVAL = 90;
-const GHOST_INTERVAL = 250;
+const MOVE_INTERVAL = 125;
+const GHOST_INTERVAL = 175;
 
 window.onload = async (e) => {
    await main(0);
 };
+
+let inSuperMode = false
+const updateSuperMode = (inMode) => {
+   inSuperMode = inMode;
+}
 
 const main = async (level) => {
 
@@ -17,29 +22,41 @@ const main = async (level) => {
    const _grid = grid.buildGrid(_maze);
    const _cellObjects = cellObjects();
    const _goobi = goobi(10, 5);
-   const _ghostA = ghost('A', 10, 14)
-   const _ghostB = ghost('B', 9, 13)
-   const _ghostC = ghost('C', 10, 13)
-   const _ghostD = ghost('D', 11, 13)
+   const _ghostA = ghost('A', 10, 14);
+   const _ghostB = ghost('B', 9, 13);
+   const _ghostC = ghost('C', 10, 13);
+   const _ghostD = ghost('D', 11, 13);
+   const _super = superPowerMode();
    const _score = score();
 
    window.addEventListener('ghostMove', (e) => {
       // qq(`id: ${e.detail.id}, x: ${e.detail.x}, y: ${e.detail.y}`)
       // qq(`x: ${_goobi.element.getAttribute('xPos')}, y: ${_goobi.element.getAttribute('yPos')}`)
-      const ghostX = e.detail.x;
-      const ghostY = e.detail.y;
+      const theGhost = e.detail.theGhost;
+      const ghostX = e.detail.xPos;
+      const ghostY = e.detail.yPos;
       const goobiX = _goobi.element.getAttribute('xPos');
       const goobiY = _goobi.element.getAttribute('yPos');
+
       if (
-         (ghostX == goobiX  && ghostY == goobiY) || 
-         (ghostX == goobiX - 1  && ghostY == goobiY) ||
-         (ghostX == goobiX  && ghostY == goobiY - 1) ||
-         (ghostX == goobiX - 1  && ghostY == goobiY - 1)
-         ) {
-         alert('you lost. please try again');
-         const gridToRemove = document.getElementById('grid');
-         gridToRemove.innerHTML = '';
-         location.reload();
+         (ghostX == goobiX && ghostY == goobiY) ||
+         (ghostX == goobiX - 1 && ghostY == goobiY) ||
+         (ghostX == goobiX && ghostY == goobiY - 1) ||
+         (ghostX == goobiX - 1 && ghostY == goobiY - 1)
+      ) {
+         if (!inSuperMode) {
+            // get killed
+            alert('you lost. please try again');
+            const gridToRemove = document.getElementById('grid');
+            gridToRemove.innerHTML = '';
+            location.reload();
+         } else {
+            // kill ghosts
+            _score.scoreGhost();
+            // theGhost.remove();
+            // _ghostA = ghost('A', 10, 14);
+            // moveGhostA();
+         }
       }
    })
 
@@ -65,9 +82,8 @@ const main = async (level) => {
          alert('YOU WON!!!!!!!!!!!!!')
          location.reload();
       }
-      superPowerMode().start();
+      _super.start(updateSuperMode);
    }
-
 
    Array.prototype.forEach.call(_cellObjects.dots, element => {
       element.addEventListener('dotEaten', goobiEncounterDot);
